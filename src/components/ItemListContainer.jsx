@@ -5,7 +5,7 @@ const ItemListContainer = ({greeting, productsData}) =>{
     return(
         <div style={{fontWeight: 'bold' , fontSize: '1rem' , width: '100vw' , height:'50vh' , textAlign: 'center'}}>
             {greeting}
-            <div>
+            <div style={{width: '100vw', height: '100vh', display: 'flex', flexWrap: 'wrap'}}>
                 {
                     productsData.map(products =>{
                         return(

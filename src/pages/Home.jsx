@@ -5,7 +5,7 @@ export const Home = () => {
     useEffect(() =>{
         document.title="La Tiendita - Home"
     })
-    const {productsData} = useGetProducts(10);
+    const {productsData} = useGetProducts(30);
     return (
         <ItemListContainer greeting="Bienvenidos a La Tiendita" productsData={productsData}/>
     )
