@@ -1,17 +1,18 @@
-import { useEffect, useState } from "react"
-import { getProductById} from "../services/productService";
-export const UseGetProductById = (id) => {
-    const [productData, setproductData] = useState({});
-    useEffect(() =>{  
-        getProductById(id)
-          .then((response) => {
-            setproductData(response.data)
-          } )
-          .catch((error) => {
-            console.log(error);
-          });
-      }, []); 
-  return (
-    {productData}
-  )
-}
+import { useState, useEffect } from "react";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
+export const useGetProductById = (collectionName = "products", id) => {
+  const [productData, setProductData] = useState([]);
+
+  useEffect(() => {
+    const db = getFirestore();
+
+    const docRef = doc(db, collectionName, id)
+
+    getDoc(docRef).then((doc) => {
+      setProductData({ id: doc.id, ...doc.data() })
+    })
+
+  }, [id]);
+
+  return { productData };
+};

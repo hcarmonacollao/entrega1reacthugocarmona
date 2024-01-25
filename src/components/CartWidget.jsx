@@ -1,10 +1,15 @@
+import { useContext } from "react";
+import "./CartWidget.css";
+import { CartContext } from "../context/CartContext";
 
-function CartWidget() {
+const CartWidget = () => {
+  const { count } = useContext(CartContext);
+
   return (
-    <div style={{display: 'flex', width: 30, justifyContent: 'space-between', alignItems: 'center'}}>
-        🛒<span style={{fontWeight: 'bold', fontSize: '1.1rem'}}>10</span>
+    <div className="cartWidgetContainer">
+      🛒<span style={{ fontWeight: "bold", fontSize: "1.3rem" }}>{count}</span>
     </div>
-  )
-}
+  );
+};
 
-export default CartWidget
+export default CartWidget;

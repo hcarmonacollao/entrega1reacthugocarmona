@@ -9,7 +9,7 @@ import { ItemDetailContainer } from "../pages/ItemDetailContainer"
             <NavBar/>
             <Routes>
                 <Route path="/" element={<Home/>}/>
-                <Route path="/item/:productId" element={<ItemDetailContainer/>}/>
+                <Route path="/item/:id" element={<ItemDetailContainer/>}/>
                 <Route path="/category/:id" element={<Category/>}/>
             </Routes>
         </BrowserRouter>
